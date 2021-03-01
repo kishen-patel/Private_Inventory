@@ -9,3 +9,9 @@ function Product_Click() {
   document.getElementById("product_list").style.display = "block";
   document.getElementById("page_heading").innerHTML = "Product List";
 }
+
+function Raw_Click() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("product_list").style.display = "block";
+  document.getElementById("page_heading").innerHTML = "Product List";
+}
