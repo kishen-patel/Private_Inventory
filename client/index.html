@@ -1,145 +1,201 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Private Inventory</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--     Fonts and icons     -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+    />
+    <!-- Material Kit CSS -->
+    <link href="assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  </head>
 
-<head>
-  <title>Private Inventory</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- Material Kit CSS -->
-  <link href="assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
-</head>
-
-<body>
-  <div class="wrapper ">
-    <div class="sidebar" data-color="Karishma" data-background-color="white">
-      <!--
+  <body>
+    <div class="wrapper">
+      <div class="sidebar" data-color="Karishma" data-background-color="white">
+        <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
       Tip 2: you can also add an image using data-image tag
   -->
-    <img src="assets/img/Logo5.png" width="285">
-
-      <div class="logo">
-        <a href="#0">
-        
-        </a>
-        <a href="#0" class="">
-        
-        </a>
+        <div class="logo">
+          <img src="assets/img/Logo5.png" width="250" />
+          <!-- <a href="#0"> </a>
+          <a href="#0" class=""> </a> -->
+        </div>
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li
+              class="nav-item active"
+              id="Dashboard_Button"
+              onclick="Dashboard_Click()"
+            >
+              <a class="nav-link" href="#0">
+                <i class="material-icons">timeline</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item active" onclick="Raw_Click()">
+              <a class="nav-link" href="#0">
+                <i class="material-icons">view_list</i>
+                <p>Raw Materials</p>
+              </a>
+            </li>
+            <li class="nav-item active" onclick="Product_Click()">
+              <a class="nav-link" href="#0">
+                <i class="material-icons">view_list</i>
+                <p>Products</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#0">
+                <i class="material-icons">inventory</i>
+                <p>Stock In</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#0">
+                <i class="material-icons">outbound</i>
+                <p>Stock Out</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#0">
+                <i class="material-icons">summarize</i>
+                <p>Stock Report</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#0">
+                <i class="material-icons">qr_code_2</i>
+                <p>Barcode/Label</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#0">
+                <i class="material-icons">history_edu</i>
+                <p>History</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#0">
+                <i class="material-icons">settings</i>
+                <p>Settings</p>
+              </a>
+            </li>
+            <!-- your sidebar here -->
+          </ul>
+        </div>
       </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
-              <i class="material-icons">timeline</i> 
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
-              <i class="material-icons">view_list</i>
-              <p>List of Products</p>
-            </a>
-          </li>
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
-              <i class="material-icons">inventory</i>
-              <p>Stock In</p>
-            </a>
-          </li>
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
-              <i class="material-icons">outbound</i>
-              <p>Stock Out</p>
-            </a>
-          </li>
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
-              <i class="material-icons">summarize</i>
-              <p>Stock Report</p>
-            </a>
-          </li>
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
-              <i class="material-icons">qr_code_2</i>
-              <p>Barcode/Label </p>
-            </a>
-          </li>
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
-              <i class="material-icons">history_edu</i>
-              <p>History</p>
-            </a>
-          </li>
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
-              <i class="material-icons">settings</i>
-              <p>Settings</p>
-            </a>
-          </li>
-          <!-- your sidebar here -->
-        </ul>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav
+          class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top"
+        >
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <a class="navbar-brand" href="javascript:;" id="page_heading"
+                >Dashboard</a
+              >
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              aria-controls="navigation-index"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="javascript:;">
+                    <i class="material-icons">notifications</i> Notifications
+                  </a>
+                </li>
+                <!-- your navbar here -->
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+          <div class="container-fluid dashboard" id="dashboard">
+            <!-- your content here -->
+          </div>
+          <div
+            class="container-fluid product_list"
+            id="product_list"
+            style="display: none"
+          >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product ID</th>
+                  <th>Product Name</th>
+                  <th>Product Description</th>
+                  <th class="text-right">Cost Price</th>
+                  <th class="text-right">Stock Amount</th>
+                  <th class="text-right">Total Value</th>
+                  <!-- <th class="text-right">Actions</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>123456</td>
+                  <td>Budget Supreme</td>
+                  <td>Green and white bed</td>
+                  <td class="text-right">&euro; 500</td>
+                  <td class="text-right">50</td>
+                  <td class="text-right">&euro; 2500</td>
+
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" class="btn btn-info">
+                      <i class="material-icons">person</i>
+                    </button>
+                    <button type="button" rel="tooltip" class="btn btn-success">
+                      <i class="material-icons">edit</i>
+                    </button>
+                    <button type="button" rel="tooltip" class="btn btn-danger">
+                      <i class="material-icons">close</i>
+                    </button>
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
+            <!-- your content here -->
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="container-fluid">
+            <nav class="float-left">
+              <ul>
+                <li>
+                  <a href="https://www.creative-tim.com"> Creative Tim </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="copyright float-right"></div>
+            <!-- your footer here -->
+          </div>
+        </footer>
       </div>
     </div>
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:;">
-                  <i class="material-icons">notifications</i> Notifications
-                </a>
-              </li>
-              <!-- your navbar here -->
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <!-- your content here -->
-        </div>
-      </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-          </div>
-          <!-- your footer here -->
-        </div>
-      </footer>
-    </div>
-  </div>
-</body>
-
+    <script type="text/javascript" src="assets/js/main.js"></script>
+  </body>
 </html>
