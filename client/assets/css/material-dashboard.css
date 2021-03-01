@@ -58,7 +58,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fafafa;
+  background-color: #a5a4a4;
 }
 
 [tabindex="-1"]:focus {
@@ -157,7 +157,7 @@ sup {
 }
 
 a {
-  color: #9c27b0;
+  color: #27b092;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
@@ -203,7 +203,7 @@ figure {
 }
 
 img {
-  vertical-align: middle;
+  vertical-align: left;
   border-style: none;
 }
 
@@ -429,7 +429,7 @@ template {
 
   .table td,
   .table th {
-    background-color: #fff !important;
+    background-color: rgb(153, 147, 147) !important;
   }
 
   .table-bordered th,
@@ -2861,8 +2861,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #ffffff;
-  background-color: #2196f3;
+  color: #27b092;
+  background-color: #27b092;
   border-color: #2196f3;
   box-shadow: none;
 }
@@ -3478,7 +3478,7 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #9c27b0;
+  color: #27b092;
   background-color: transparent;
 }
 
@@ -4278,7 +4278,7 @@ tbody.collapse.show {
 }
 
 .nav-tabs {
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #a3a4a5;
 }
 
 .nav-tabs .nav-item {
@@ -4366,7 +4366,7 @@ tbody.collapse.show {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 10rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -13762,7 +13762,7 @@ fieldset[disabled] .form-group .form-control {
 
 .navbar .navbar-nav .nav-item .nav-link:not(.btn) .material-icons {
   margin-top: -7px;
-  top: 3px;
+  top: 1px;
   position: relative;
   margin-right: 3px;
 }
@@ -13835,12 +13835,12 @@ fieldset[disabled] .form-group .form-control {
 .navbar .navbar-brand {
   position: relative;
   color: inherit;
-  height: 50px;
-  font-size: 1.125rem;
+  height: 60px;
+  font-size: 4rem;
   line-height: 30px;
-  padding: 0.625rem 0;
+  padding: 2.625rem 0;
   font-weight: 300;
-  margin-left: 1rem;
+  margin-left: 30rem;
 }
 
 .navbar>.container {
@@ -13849,7 +13849,7 @@ fieldset[disabled] .form-group .form-control {
 
 .navbar.bg-primary {
   color: #fff;
-  background-color: #9c27b0 !important;
+  background-color: #5f5b5f !important;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46);
 }
 
@@ -15163,8 +15163,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   bottom: 0;
   left: 0;
   z-index: 2;
-  width: 260px;
-  background: #fff;
+  width: 280px;
+  background: rgba(12, 12, 12, 0.692);
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
@@ -15425,11 +15425,11 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .sidebar[data-background-color="black"] .nav .nav-item .nav-link {
-  color: #fff;
+  color: rgba(111, 124, 120, 0.459);
 }
 
 .sidebar[data-background-color="black"] .nav .nav-item i {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(253, 253, 253, 0.959);
 }
 
 .sidebar[data-background-color="black"] .nav .nav-item.active [data-toggle="collapse"],
@@ -15451,7 +15451,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .sidebar[data-background-color="black"] .sidebar-background:after {
-  background: #000;
+  background: rgba(104, 100, 100, 0.432);
   opacity: .8;
 }
 
@@ -15481,6 +15481,11 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 
 .sidebar[data-color="danger"] li.active>a {
   background-color: #f44336;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
+}
+
+.sidebar[data-color="Karishma"] li.active>a {
+  background-color: #27b092;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
 
@@ -15576,7 +15581,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .main-panel>.footer {
-  border-top: 1px solid #e7e7e7;
+  border-top: 1px solid #968c8c;
 }
 
 .main-panel>.navbar {
@@ -16985,8 +16990,8 @@ thead.thead-inverse th,
 }
 
 body {
-  background-color: #eee;
-  color: #3C4858;
+  background-color: #eeeeee;
+  color: #858b8aa6;
   font-weight: 300;
 }
 
@@ -17008,7 +17013,7 @@ legend {
 }
 
 a {
-  color: #9c27b0;
+  color: #27b092;
 }
 
 a:hover,
@@ -17023,7 +17028,7 @@ a.text-info:focus {
 }
 
 a .material-icons {
-  vertical-align: middle;
+  vertical-align: left;
 }
 
 .form-check,
@@ -17838,7 +17843,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card .card-body+.card-footer .stats .material-icons,
 .card .card-footer .stats .material-icons {
   position: relative;
-  top: 4px;
+  top: 3px;
   font-size: 16px;
 }
 
