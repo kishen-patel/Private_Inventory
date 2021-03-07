@@ -21,7 +21,8 @@
     <link href="assets/demo/demo.css" rel="stylesheet" />
   </head>
 
-  <body>
+  <body onload="ChartLoader()">
+
     <div class="wrapper">
       <div class="sidebar" data-color="Karishma" data-background-color="white">
         <!--
@@ -36,8 +37,7 @@
         </div>
         <div class="sidebar-wrapper">
           <ul class="nav">
-            <li
-              class="nav-item active"
+            <li class="nav-item active"
               id="Dashboard_Button"
               onclick="Dashboard_Click()"
             >
@@ -46,7 +46,7 @@
                 <p>Dashboard</p>
               </a>
             </li>
-            <li class="nav-item active" onclick="Inventory_Click()">
+            <li class="nav-item active" id="Inventory_Button" onclick="Inventory_Click()">
               <a class="nav-link" href="#0">
                 <i class="material-icons">view_list</i>
                 <p>Inventory List</p>
@@ -179,13 +179,13 @@
         <div class="content">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-lg-3 col-md-6 col-sm-6">
+              <!-- <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                   <div class="card-header card-header-warning card-header-icon">
                     <div class="card-icon">
                       <i class="material-icons">content_copy</i>
                     </div>
-                    <p class="card-category">Used Space</p>
+                   <p class="card-category">Used Space</p>
                     <h3 class="card-title">
                       49/50
                       <small>GB</small>
@@ -198,15 +198,15 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">store</i>
+                      <i class="material-icons">south</i>
                     </div>
-                    <p class="card-category">Revenue</p>
-                    <h3 class="card-title">$34,245</h3>
+                    <p class="card-category">Stock In</p>
+                    <h3 class="card-title">80</h3>
                   </div>
                   <div class="card-footer">
                     <div class="stats">
@@ -219,16 +219,19 @@
                 <div class="card card-stats">
                   <div class="card-header card-header-danger card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">info_outline</i>
+                      <i class="material-icons">north</i>
                     </div>
-                    <p class="card-category">Fixed Issues</p>
+                    <p class="card-category">Stock Out</p>
                     <h3 class="card-title">75</h3>
                   </div>
                   <div class="card-footer">
                     <div class="stats">
+                      <i class="material-icons">date_range</i> Last 24 Hours
+                    </div>
+                    <!--<div class="stats">
                       <i class="material-icons">local_offer</i> Tracked from
                       Github
-                    </div>
+                    </div>-->
                   </div>
                 </div>
               </div>
@@ -236,9 +239,9 @@
                 <div class="card card-stats">
                   <div class="card-header card-header-info card-header-icon">
                     <div class="card-icon">
-                      <i class="fa fa-twitter"></i>
+                      <i class="fa fa-cubes"></i>
                     </div>
-                    <p class="card-category">Followers</p>
+                    <p class="card-category">Production Of The Day</p>
                     <h3 class="card-title">+245</h3>
                   </div>
                   <div class="card-footer">
@@ -256,7 +259,7 @@
                     <div class="ct-chart" id="dailySalesChart"></div>
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title">Daily Sales</h4>
+                    <h4 class="card-title">Daily Production</h4>
                     <p class="card-category">
                       <span class="text-success"
                         ><i class="fa fa-long-arrow-up"></i> 55%
@@ -268,6 +271,23 @@
                     <div class="stats">
                       <i class="material-icons">access_time</i> updated 4
                       minutes ago
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-chart">
+                  <div class="card-header card-header-danger">
+                    <div class="ct-chart" id="completedTasksChart"></div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Stock In</h4>
+                    <p class="card-category">Last Campaign Performance</p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons">access_time</i> campaign sent 2
+                      days ago
                     </div>
                   </div>
                 </div>
@@ -289,7 +309,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+             <!-- <div class="col-md-4">
                 <div class="card card-chart">
                   <div class="card-header card-header-danger">
                     <div class="ct-chart" id="completedTasksChart"></div>
@@ -305,9 +325,9 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
-            <div class="row">
+           <!-- <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="card">
                   <div class="card-header card-header-tabs card-header-primary">
@@ -769,7 +789,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <footer class="footer">
@@ -901,7 +921,7 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Simple Table</h4>
+                    <h4 class="card-title">Raw Materials</h4>
                     <p class="card-category">
                       Here is a subtitle for this table
                     </p>
@@ -912,9 +932,10 @@
                         <thead class="text-primary">
                           <th>ID</th>
                           <th>Name</th>
-                          <th>Country</th>
-                          <th>City</th>
-                          <th>Salary</th>
+                          <th>Description</th>
+                          <th>Quantity</th>
+                          <th>Price</th>
+                          <th>Total Cost</th>
                         </thead>
                         <tbody>
                           <tr>
@@ -924,7 +945,7 @@
                             <td>Oud-Turnhout</td>
                             <td class="text-primary">$36,738</td>
                           </tr>
-                          <tr>
+                         <tr>
                             <td>2</td>
                             <td>Minerva Hooper</td>
                             <td>Curaçao</td>
@@ -968,8 +989,8 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Simple Table</h4>
-                    <p class="card-category">
+                    <h4 class="card-title">Finished Products</h4>
+                   <p class="card-category">
                       Here is a subtitle for this table
                     </p>
                   </div>
@@ -979,9 +1000,9 @@
                         <thead class="text-primary">
                           <th>ID</th>
                           <th>Name</th>
-                          <th>Country</th>
-                          <th>City</th>
-                          <th>Salary</th>
+                          <th>Description</th>
+                          <th>Quantity</th>
+                          <th>Price</th>
                         </thead>
                         <tbody>
                           <tr>
@@ -991,7 +1012,7 @@
                             <td>Oud-Turnhout</td>
                             <td class="text-primary">$36,738</td>
                           </tr>
-                          <tr>
+                         <tr>
                             <td>2</td>
                             <td>Minerva Hooper</td>
                             <td>Curaçao</td>
@@ -1091,8 +1112,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
     <!-- Library for adding dinamically elements -->
     <script src="assets/js/plugins/arrive.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chartist JS -->
     <script src="assets/js/plugins/chartist.min.js"></script>
     <!--  Notifications Plugin    -->

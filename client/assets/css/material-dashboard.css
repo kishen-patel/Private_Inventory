@@ -378,7 +378,7 @@ template {
 
   pre,
   blockquote {
-    border: 1px solid #999;
+    border: 1px solid rgb(12, 12, 12);
     page-break-inside: avoid;
   }
 
@@ -578,7 +578,7 @@ sup {
 }
 
 a {
-  color: #9c27b0;
+  color: #050505;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
@@ -976,7 +976,7 @@ kbd kbd {
 pre {
   display: block;
   font-size: 87.5%;
-  color: #212529;
+  color: #080808;
 }
 
 pre code {
@@ -4802,7 +4802,7 @@ tbody.collapse.show {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: rgb(7, 7, 7);
   background-clip: border-box;
   border: 1px solid #eeeeee;
   border-radius: 0.25rem;
@@ -4852,8 +4852,8 @@ tbody.collapse.show {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: #fff;
-  border-bottom: 1px solid #eeeeee;
+  background-color: rgb(10, 10, 10);
+  border-bottom: 1px solid #0c0c0c;
 }
 
 .card-header:first-child {
@@ -14384,9 +14384,9 @@ h3,
 
 h4,
 .h4 {
-  font-size: 1.125rem;
-  line-height: 1.4em;
-  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1em;
+  font-weight: 200;
 }
 
 h5,
@@ -14448,7 +14448,7 @@ h2.title {
 }
 
 .text-success {
-  color: #4caf50 !important;
+  color: #999999 !important;
 }
 
 .text-info {
@@ -15485,8 +15485,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .sidebar[data-color="Karishma"] li.active>a {
-  background-color: #27b092;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
+  background-color: #7b777780;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(3, 3, 3, 0.4);
 }
 
 .sidebar[data-color="rose"] li.active>a {
@@ -17522,7 +17522,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card.bg-primary,
 .card.card-rotate.bg-primary .front,
 .card.card-rotate.bg-primary .back {
-  background: linear-gradient(60deg, #ab47bc, #8e24aa);
+  background: linear-gradient(60deg, #030303, #131213);
 }
 
 .card .card-header-info .card-icon,
@@ -17531,7 +17531,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card.bg-info,
 .card.card-rotate.bg-info .front,
 .card.card-rotate.bg-info .back {
-  background: linear-gradient(60deg, #26c6da, #00acc1);
+  background: linear-gradient(60deg, #36486b, #36486b);
 }
 
 .card .card-header-success .card-icon,
@@ -17540,7 +17540,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card.bg-success,
 .card.card-rotate.bg-success .front,
 .card.card-rotate.bg-success .back {
-  background: linear-gradient(60deg, #66bb6a, #43a047);
+  background: linear-gradient(60deg, #96897f, #96897f);
 }
 
 .card .card-header-warning .card-icon,
@@ -17549,7 +17549,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card.bg-warning,
 .card.card-rotate.bg-warning .front,
 .card.card-rotate.bg-warning .back {
-  background: linear-gradient(60deg, #ffa726, #fb8c00);
+  background: linear-gradient(60deg,  #36486b,  #36486b);
 }
 
 .card .card-header-danger .card-icon,
@@ -17558,7 +17558,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card.bg-danger,
 .card.card-rotate.bg-danger .front,
 .card.card-rotate.bg-danger .back {
-  background: linear-gradient(60deg, #ef5350, #e53935);
+  background: linear-gradient(100deg, #bccad6, #bccad6);
 }
 
 .card .card-header-rose .card-icon,
@@ -17567,43 +17567,43 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card.bg-rose,
 .card.card-rotate.bg-rose .front,
 .card.card-rotate.bg-rose .back {
-  background: linear-gradient(60deg, #ec407a, #d81b60);
+  background: linear-gradient(60deg,  #96ceb4,  #96ceb4);
 }
 
 .card .card-header-primary .card-icon,
 .card .card-header-primary:not(.card-header-icon):not(.card-header-text),
 .card .card-header-primary .card-text {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(10, 10, 10, 0.4);
 }
 
 .card .card-header-danger .card-icon,
 .card .card-header-danger:not(.card-header-icon):not(.card-header-text),
 .card .card-header-danger .card-text {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(10, 10, 10, 0.4);
 }
 
 .card .card-header-rose .card-icon,
 .card .card-header-rose:not(.card-header-icon):not(.card-header-text),
 .card .card-header-rose .card-text {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(10, 10, 10, 0.4);
 }
 
 .card .card-header-warning .card-icon,
 .card .card-header-warning:not(.card-header-icon):not(.card-header-text),
 .card .card-header-warning .card-text {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(10, 10, 10, 0.4);
 }
 
 .card .card-header-info .card-icon,
 .card .card-header-info:not(.card-header-icon):not(.card-header-text),
 .card .card-header-info .card-text {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(10, 10, 10, 0.4);
 }
 
 .card .card-header-success .card-icon,
 .card .card-header-success:not(.card-header-icon):not(.card-header-text),
 .card .card-header-success .card-text {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(10, 10, 10, 0.4);
 }
 
 .card [class*="card-header-"],
