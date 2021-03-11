@@ -21,13 +21,13 @@
     <link href="assets/css/login.css" rel="stylesheet" />
   </head>
 
-  <body>
+  <body onload="Authenticate()">
 
  <main id="main-holder">
       <h1 id="login-header">Login</h1>
       
       <div id="login-error-msg-holder">
-        <p id="login-error-msg">Do not touch things here <span id="error-msg-second-line"></span></p>
+        <p id="login-error-msg">Failed to login.<span id="error-msg-second-line">Please check your username or password and try again.</span></p>
       </div>
       
       <form id="login-form">
@@ -36,6 +36,7 @@
         <input type="submit" value="Login" id="login-form-submit">
       </form>
 
+      <script type="text/javascript" src="assets/js/socket.io.js"></script>
       <script type="text/javascript" src="assets/js/login.js"></script>
 
     </body>
