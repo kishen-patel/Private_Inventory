@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Jadavjik/Private_Inventory#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "mongodb": "^3.6.4",
     "socket.io": "^4.0.0"

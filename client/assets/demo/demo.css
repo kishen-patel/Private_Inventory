@@ -59,3 +59,40 @@
   height: calc(100vh - 70px);
   margin-top: 70px;
 }
+
+.card-title{
+  line-height: 1.5em;
+}
+
+.table-button{
+  background-color: #36486b;
+  color: #FFFFFF;
+  width: 10%;
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+.table-button:hover{
+  background-color: #36486b;
+  color: #FFFFFF;
+}
+.table-button:focus{
+  background-color: #36486b;
+  color: #FFFFFF;
+}
+tr .btn{
+  padding: 3px 10px;
+}
+
+.sidebar .nav li a,
+.sidebar .nav li .dropdown-menu a {
+  color: #ffffff;
+}
+
+.sidebar .nav li:hover>a,
+.sidebar .nav li .dropdown-menu a:hover,
+.sidebar .nav li .dropdown-menu a:focus,
+.sidebar .nav li.active>[data-toggle="collapse"] {
+  background-color: rgba(200, 200, 200, 0.2);
+  color: #d1d1d1;
+  box-shadow: none;
+}

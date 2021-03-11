@@ -5,8 +5,7 @@
 const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
-const fs = require("fs");
-const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
 const uri =
   "mongodb+srv://314IT:Final314IT@cluster0.jd8k7.mongodb.net/Private_Inventory?retryWrites=true&w=majority";
 const app = express();
@@ -23,34 +22,17 @@ let clientDB = null;
 // #region Server Config
 //================================================================================
 
-app.use(
-  bodyParser.urlencoded({
-    parameterLimit: 100000,
-    limit: "50mb",
-    extended: true,
-  })
-);
-
 app.use(express.static(__dirname + "/client"));
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/client/index.html");
-});
-
-app.get("/login", function (req, res) {
   res.sendFile(__dirname + "/client/login.html");
 });
 
-app.use(bodyParser.json());
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
+app.get("/home", function (req, res) {
+  res.sendFile(__dirname + "/client/home.html");
 });
+
+var BCRYPT_SALT_ROUNDS = 12;
 
 //================================================================================
 // #endregion Server Config
@@ -62,6 +44,16 @@ app.use(function (req, res, next) {
 
 http.listen(port, () => {
   console.log("We are live on " + port);
+  // bcrypt
+  //   .hash("test1234", BCRYPT_SALT_ROUNDS)
+  //   .then(function (hashedPassword) {
+  //     console.log(hashedPassword);
+  //   })
+  //   .catch(function (error) {
+  //     console.log("Error saving user: ");
+  //     console.log(error);
+  //     next();
+  //   });
 });
 
 //================================================================================
@@ -81,7 +73,6 @@ io.on("connection", async function (socket) {
   }
   //check login details
   socket.on("Login", async function (data) {
-    console.info(data);
     try {
       const db = clientDB.db("314IT");
       const collection_users = db.collection("Users");
@@ -96,22 +87,93 @@ io.on("connection", async function (socket) {
           },
         }
       );
-      console.info(checkUser);
-      if (checkUser && checkUser.password == data.password) {
-        socket.emit("Verified", {});
-        socket.loggedIn = true;
-      } else {
-        console.log("invalid credentials");
-        socket.emit("Failed", {});
-        socket.loggedIn = false;
-      }
+      bcrypt.compare(data.password, checkUser.password, function (err, result) {
+        if (result == true) {
+          socket.emit("Verified", {});
+          socket.loggedIn = true;
+        } else {
+          socket.emit("Failed", {});
+          socket.loggedIn = false;
+        }
+      });
     } catch (error) {
       socket.emit("Error", { error: error });
     }
   });
 
-  //create finished product
+  //create product
   socket.on("Create_Product", async function (data) {
+    console.log(socket.loggedIn);
+    if ((socket.loggedIn = true)) {
+      try {
+        const db = clientDB.db("314IT");
+        const collection_product = db.collection("Products");
+        const product = {
+          Product_Name: data.Product_Name,
+          Description: data.Description,
+          Raw_Materials: data.Raw_Materials,
+          Price: parseInt(data.Price),
+        };
+        const productInsert = await collection_product.insertOne(
+          product,
+          async function (err, result) {
+            if (err) return socket.emit("Error", { error: err });
+            const checkProduct = await collection_product.find({}).toArray();
+            socket.emit("Product_Created", {
+              product: checkProduct,
+            });
+          }
+        );
+      } catch (error) {
+        socket.emit("Error", { error: error });
+      }
+    }
+  });
+
+  //read products
+  socket.on("Get_Products", async function (data) {
+    console.log(socket.loggedIn);
+    if ((socket.loggedIn = true)) {
+      try {
+        const db = clientDB.db("314IT");
+        const collection_product = db.collection("Products");
+        const productGet = await collection_product.find({}).toArray();
+        socket.emit("Got_Products", {
+          product: productGet,
+        });
+      } catch (error) {
+        socket.emit("Error", { error: error });
+      }
+    }
+  });
+
+  //delete product
+  socket.on("Delete_Product", async function (data) {
+    console.log(socket.loggedIn);
+    if ((socket.loggedIn = true)) {
+      try {
+        const db = clientDB.db("314IT");
+        const collection_product = db.collection("Products");
+        const deleteProduct = await collection_product.deleteOne(
+          {
+            _id: ObjectId(data.productID),
+          },
+          true
+        );
+        const checkProduct = await collection_product.find({}).toArray();
+        if (deleteProduct) {
+          socket.emit("Deleted_Product", { product: checkProduct });
+        } else {
+          socket.emit("Error", { error: "Failed to delete product" });
+        }
+      } catch (error) {
+        socket.emit("Error", { error: error });
+      }
+    }
+  });
+
+  //create finished product
+  socket.on("Create_Finished_Product", async function (data) {
     console.info(data);
     console.log(socket.loggedIn);
     if ((socket.loggedIn = true)) {
@@ -129,7 +191,7 @@ io.on("connection", async function (socket) {
           (err, result) => {
             if (err) return console.error(err);
             console.info(stockInsert.ops);
-            socket.emit("Product_Added", {
+            socket.emit("Finished_Product_Added", {
               product: stock,
             });
             console.info(result);
@@ -142,7 +204,7 @@ io.on("connection", async function (socket) {
   });
 
   //get all finished products
-  socket.on("Get_Products", async function (data) {
+  socket.on("Get_Finished_Products", async function (data) {
     console.info(data);
     console.log(socket.loggedIn);
     if ((socket.loggedIn = true)) {
@@ -160,7 +222,7 @@ io.on("connection", async function (socket) {
         //2020-02-12 date
         console.info(checkProduct);
         if (checkProduct) {
-          socket.emit("Got_Products", { products: checkProduct });
+          socket.emit("Got_Finished_Products", { products: checkProduct });
         } else {
           socket.emit("Error", { error: "Failed to get finished products" });
         }
@@ -171,7 +233,7 @@ io.on("connection", async function (socket) {
   });
 
   //delete finished product
-  socket.on("Delete_Product", async function (data) {
+  socket.on("Delete_Finished_Product", async function (data) {
     console.info(data);
     console.log(socket.loggedIn);
     if ((socket.loggedIn = true)) {

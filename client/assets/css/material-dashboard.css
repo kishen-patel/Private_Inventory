@@ -32,6 +32,24 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.float {
+  float: right;
+  width: 10%;
+  border: 2px solid #030303; 
+  background-color: #96897f;
+  padding: 8px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+
+
+.button:hover {
+  background-color: #96897f; 
+  color: white;
+}
 @-ms-viewport {
   width: device-width;
 }

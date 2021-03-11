@@ -22,7 +22,6 @@
   </head>
 
   <body onload="ChartLoader()">
-
     <div class="wrapper">
       <div class="sidebar" data-color="Karishma" data-background-color="white">
         <!--
@@ -31,13 +30,14 @@
       Tip 2: you can also add an image using data-image tag
   -->
         <div class="logo">
-          <img src="assets/img/Logo5.png" width="250" />
+          <img src="assets/img/Logo5.png" width="280" />
           <!-- <a href="#0"> </a>
           <a href="#0" class=""> </a> -->
         </div>
         <div class="sidebar-wrapper">
           <ul class="nav">
-            <li class="nav-item active"
+            <li
+              class="nav-item active"
               id="Dashboard_Button"
               onclick="Dashboard_Click()"
             >
@@ -46,28 +46,32 @@
                 <p>Dashboard</p>
               </a>
             </li>
-            <li class="nav-item active" id="Inventory_Button" onclick="Inventory_Click()">
+            <li class="nav-item" id="Product_Button" onclick="Product_Click()">
+              <a class="nav-link" href="#0">
+                <i class="material-icons">view_list</i>
+                <p>Product List</p>
+              </a>
+            </li>
+            <li
+              class="nav-item"
+              id="Inventory_Button"
+              onclick="Inventory_Click()"
+            >
               <a class="nav-link" href="#0">
                 <i class="material-icons">view_list</i>
                 <p>Inventory List</p>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="#0">
                 <i class="material-icons">summarize</i>
                 <p>Stock Report</p>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="#0">
                 <i class="material-icons">history_edu</i>
                 <p>History</p>
-              </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#0">
-                <i class="material-icons">settings</i>
-                <p>Settings</p>
               </a>
             </li>
             <!-- your sidebar here -->
@@ -80,9 +84,9 @@
           class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top"
         >
           <div class="container-fluid">
-            <div class="navbar-wrapper">
+            <!-- <div class="navbar-wrapper">
               <a class="navbar-brand" href="javascript:;">Dashboard</a>
-            </div>
+            </div> -->
             <button
               class="navbar-toggler"
               type="button"
@@ -115,12 +119,12 @@
                 </div>
               </form>
               <ul class="navbar-nav">
-                <li class="nav-item">
+                <!--<li class="nav-item">
                   <a class="nav-link" href="javascript:;">
                     <i class="material-icons">dashboard</i>
                     <p class="d-lg-none d-md-block">Stats</p>
                   </a>
-                </li>
+                </li>-->
                 <li class="nav-item dropdown">
                   <a
                     class="nav-link"
@@ -131,22 +135,17 @@
                     aria-expanded="false"
                   >
                     <i class="material-icons">notifications</i>
-                    <span class="notification">5</span>
+                    <span class="notification">2</span>
                     <p class="d-lg-none d-md-block">Some Actions</p>
                   </a>
                   <div
                     class="dropdown-menu dropdown-menu-right"
                     aria-labelledby="navbarDropdownMenuLink"
                   >
-                    <a class="dropdown-item" href="#"
-                      >Mike John responded to your email</a
-                    >
-                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                    <a class="dropdown-item" href="#"
-                      >You're now friend with Andrew</a
-                    >
-                    <a class="dropdown-item" href="#">Another Notification</a>
-                    <a class="dropdown-item" href="#">Another One</a>
+                    <a class="dropdown-item" href="#">Re-order Batting</a>
+                    <a class="dropdown-item" href="#">Re-order spunbond</a>
+                    <!--<a class="dropdown-item" href="#"></a>
+                    <a class="dropdown-item" href="#">Another One</a>-->
                   </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -199,7 +198,7 @@
                   </div>
                 </div>
               </div> -->
-              <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                     <div class="card-icon">
@@ -215,7 +214,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="card card-stats">
                   <div class="card-header card-header-danger card-header-icon">
                     <div class="card-icon">
@@ -235,7 +234,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="card card-stats">
                   <div class="card-header card-header-info card-header-icon">
                     <div class="card-icon">
@@ -309,7 +308,7 @@
                   </div>
                 </div>
               </div>
-             <!-- <div class="col-md-4">
+              <!-- <div class="col-md-4">
                 <div class="card card-chart">
                   <div class="card-header card-header-danger">
                     <div class="ct-chart" id="completedTasksChart"></div>
@@ -327,7 +326,7 @@
                 </div>
               </div> -->
             </div>
-           <!-- <div class="row">
+            <!-- <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="card">
                   <div class="card-header card-header-tabs card-header-primary">
@@ -813,15 +812,15 @@
           </div>
         </footer>
       </div>
-      <div class="main-panel" id="inventory_list" style="display: none">
+      <div class="main-panel" id="product_list" style="display: none">
         <!-- Navbar -->
         <nav
           class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top"
         >
           <div class="container-fluid">
-            <div class="navbar-wrapper">
-              <a class="navbar-brand" href="javascript:;">Inventory List</a>
-            </div>
+            <!-- <div class="navbar-wrapper">
+              <a class="navbar-brand" href="javascript:;">Product List</a>
+            </div> -->
             <button
               class="navbar-toggler"
               type="button"
@@ -921,17 +920,420 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Raw Materials</h4>
-                    <p class="card-category">
+                    <h4 class="card-title">
+                      Products
+                      <button
+                        type="button"
+                        class="float btn table-button"
+                        data-toggle="modal"
+                        data-target="#productModal"
+                      >
+                        <i class="material-icons">add</i> Add
+                      </button>
+                      <button
+                        type="button"
+                        class="float btn table-button"
+                        onclick="Product_Click()"
+                      >
+                        <i class="material-icons">refresh</i> Refresh
+                      </button>
+                    </h4>
+                    <!--<p class="card-category">
                       Here is a subtitle for this table
-                    </p>
+                    </p>-->
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table" id="product-table">
+                        <thead class="text-primary">
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Description</th>
+                          <th>Foam (ml)</th>
+                          <th>Material (m)</th>
+                          <th>Tape (m)</th>
+                          <th>Plastic (m)</th>
+                          <th>Spun Bond (m)</th>
+                          <th>Batting (m)</th>
+                          <th>Spring</th>
+                          <th>Price ($)</th>
+                          <th>Actions</th>
+                        </thead>
+                        <tbody id="product-tbody"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <footer class="footer">
+          <div class="container-fluid">
+            <nav class="float-left">
+              <ul>
+                <li>
+                  <a href="https://www.creative-tim.com"> Creative Tim </a>
+                </li>
+                <li>
+                  <a href="https://creative-tim.com/presentation"> About Us </a>
+                </li>
+                <li>
+                  <a href="http://blog.creative-tim.com"> Blog </a>
+                </li>
+                <li>
+                  <a href="https://www.creative-tim.com/license"> Licenses </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </footer> -->
+        <!-- Product Modal -->
+        <div
+          class="modal fade"
+          id="productModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="productModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel">Add Product</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="product-info">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="productNameInput"
+                      name="productName"
+                      placeholder="Enter product name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <textarea
+                      class="form-control"
+                      id="productDescriptionInput"
+                      rows="2"
+                      name="productDescription"
+                      placeholder="Enter product description"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>Raw Materials</label>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="foamInput"
+                            name="foam"
+                            placeholder="Medium Density Foam (ml)"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="materialInput"
+                            name="material"
+                            placeholder="Material (meters)"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="tapeInput"
+                            name="tape"
+                            placeholder="Tape (meters)"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="plasticInput"
+                            name="plastic"
+                            placeholder="Plastic (meters)"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="spunInput"
+                            name="spun"
+                            placeholder="Spun Bond (meters)"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="battingInput"
+                            name="batting"
+                            placeholder="Batting (meters)"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="springInput"
+                            name="spring"
+                            placeholder="Spring (units)"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="priceInput"
+                            name="price"
+                            placeholder="Price ($)"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="AddProduct()"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Delete Modal -->
+        <div
+          class="modal fade"
+          id="deleteModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="deleteModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">
+                  Delete Product
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to delete the product?
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  No
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="DeleteProductID()"
+                >
+                  Yes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-panel" id="inventory_list" style="display: none">
+        <!-- Navbar -->
+        <nav
+          class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top"
+        >
+          <div class="container-fluid">
+            <!-- <div class="navbar-wrapper">
+              <a class="navbar-brand" href="javascript:;">Inventory List</a>
+            </div> -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              aria-controls="navigation-index"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end">
+              <form class="navbar-form">
+                <div class="input-group no-border">
+                  <input
+                    type="text"
+                    value=""
+                    class="form-control"
+                    placeholder="Search..."
+                  />
+                  <button
+                    type="submit"
+                    class="btn btn-white btn-round btn-just-icon"
+                  >
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                  </button>
+                </div>
+              </form>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="javascript:;">
+                    <i class="material-icons">dashboard</i>
+                    <p class="d-lg-none d-md-block">Stats</p>
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link"
+                    href="http://example.com"
+                    id="navbarDropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i class="material-icons">notifications</i>
+                    <span class="notification">5</span>
+                    <p class="d-lg-none d-md-block">Some Actions</p>
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-right"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <a class="dropdown-item" href="#"
+                      >Mike John responded to your email</a
+                    >
+                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                    <a class="dropdown-item" href="#"
+                      >You're now friend with Andrew</a
+                    >
+                    <a class="dropdown-item" href="#">Another Notification</a>
+                    <a class="dropdown-item" href="#">Another One</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link"
+                    href="javascript:;"
+                    id="navbarDropdownProfile"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i class="material-icons">person</i>
+                    <p class="d-lg-none d-md-block">Account</p>
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-right"
+                    aria-labelledby="navbarDropdownProfile"
+                  >
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Log out</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">
+                      Raw Materials
+                      <button type="button" class="float btn table-button">
+                        <i class="material-icons">add</i> Add
+                      </button>
+                      <button type="button" class="float btn table-button">
+                        <i class="material-icons">refresh</i> Refresh
+                      </button>
+                    </h4>
+                    <!--<p class="card-category">
+                      Here is a subtitle for this table
+                    </p>-->
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table">
                         <thead class="text-primary">
                           <th>ID</th>
-                          <th>Name</th>
+                          <th>Raw Material</th>
                           <th>Description</th>
                           <th>Quantity</th>
                           <th>Price</th>
@@ -940,12 +1342,13 @@
                         <tbody>
                           <tr>
                             <td>1</td>
-                            <td>Dakota Rice</td>
-                            <td>Niger</td>
-                            <td>Oud-Turnhout</td>
-                            <td class="text-primary">$36,738</td>
+                            <td>Spunbond</td>
+                            <td></td>
+                            <td>50</td>
+                            <td>$10</td>
+                            <td class="text-primary">$500</td>
                           </tr>
-                         <tr>
+                          <!--<tr>
                             <td>2</td>
                             <td>Minerva Hooper</td>
                             <td>Curaçao</td>
@@ -979,7 +1382,7 @@
                             <td>Chile</td>
                             <td>Gloucester</td>
                             <td class="text-primary">$78,615</td>
-                          </tr>
+                          </tr>-->
                         </tbody>
                       </table>
                     </div>
@@ -989,30 +1392,39 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Finished Products</h4>
-                   <p class="card-category">
+                    <h4 class="card-title">
+                      Finished Products
+                      <button type="button" class="float btn table-button">
+                        <i class="material-icons">add</i> Add
+                      </button>
+                      <button type="button" class="float btn table-button">
+                        <i class="material-icons">refresh</i> Refresh
+                      </button>
+                    </h4>
+                    <!--<p class="card-category">
                       Here is a subtitle for this table
-                    </p>
+                    </p>-->
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table">
                         <thead class="text-primary">
                           <th>ID</th>
-                          <th>Name</th>
+                          <th>Final Product</th>
                           <th>Description</th>
                           <th>Quantity</th>
                           <th>Price</th>
                         </thead>
                         <tbody>
                           <tr>
-                            <td>1</td>
-                            <td>Dakota Rice</td>
-                            <td>Niger</td>
-                            <td>Oud-Turnhout</td>
-                            <td class="text-primary">$36,738</td>
+                            <td>1.1</td>
+                            <td>Budget BaseSet</td>
+                            <td></td>
+                            <td>25</td>
+                            <td>$90</td>
+                            <!-- <td class="text-primary">$36,738</td>-->
                           </tr>
-                         <tr>
+                          <!--<tr>
                             <td>2</td>
                             <td>Minerva Hooper</td>
                             <td>Curaçao</td>
@@ -1046,7 +1458,7 @@
                             <td>Chile</td>
                             <td>Gloucester</td>
                             <td class="text-primary">$78,615</td>
-                          </tr>
+                          </tr>-->
                         </tbody>
                       </table>
                     </div>
@@ -1077,8 +1489,44 @@
           </div>
         </footer>
       </div>
+      <!-- Success Modal -->
+      <div
+        class="modal fade"
+        id="successModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="successModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="successModalLabel">
+                Operation Successful
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">Successfully completed operation.</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-success"
+                data-dismiss="modal"
+              >
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script type="text/javascript" src="assets/js/main.js"></script>
     <!--   Core JS Files   -->
     <script src="assets/js/core/jquery.min.js"></script>
     <script src="assets/js/core/popper.min.js"></script>
@@ -1117,11 +1565,13 @@
     <!--  Notifications Plugin    -->
     <script src="assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script type="text/javascript" src="assets/js/socket.io.js"></script>
     <script
       src="assets/js/material-dashboard.js?v=2.1.2"
       type="text/javascript"
     ></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="assets/demo/demo.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
   </body>
 </html>

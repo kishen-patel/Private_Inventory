@@ -3,7 +3,7 @@ var socket = io();
 function Authenticate() {
   var loginCookieValue = getCookie("Login");
   if (loginCookieValue == "true") {
-    window.location.replace("localhost:3000");
+    window.location.replace("http://localhost:3000/home");
   } else {
     console.log("Not Logged In");
   }
@@ -27,7 +27,7 @@ loginButton.addEventListener("click", (e) => {
 socket.on("Verified", function (data) {
   loginErrorMsg.style.opacity = 0;
   setCookie("Login", "true", 1);
-  window.location.replace("localhost:3000");
+  window.location.replace("http://localhost:3000/home");
 });
 socket.on("Failed", function (data) {
   loginErrorMsg.style.opacity = 1;
