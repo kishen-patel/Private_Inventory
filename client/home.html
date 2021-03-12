@@ -1317,73 +1317,35 @@
                   <div class="card-header card-header-primary">
                     <h4 class="card-title">
                       Raw Materials
-                      <button type="button" class="float btn table-button">
-                        <i class="material-icons">add</i> Add
+                      <button
+                        type="button"
+                        class="float btn table-button"
+                        data-toggle="modal"
+                        data-target="#rawModal"
+                      >
+                        <i class="material-icons">add</i> Quantity
                       </button>
-                      <button type="button" class="float btn table-button">
+                      <button
+                        type="button"
+                        class="float btn table-button"
+                        onclick="Inventory_Click()"
+                      >
                         <i class="material-icons">refresh</i> Refresh
                       </button>
                     </h4>
-                    <!--<p class="card-category">
-                      Here is a subtitle for this table
-                    </p>-->
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
-                      <table class="table">
+                      <table class="table" id="raw-table">
                         <thead class="text-primary">
                           <th>ID</th>
-                          <th>Raw Material</th>
-                          <th>Description</th>
+                          <th>Name</th>
                           <th>Quantity</th>
-                          <th>Price</th>
-                          <th>Total Cost</th>
+                          <th>Price ($)</th>
+                          <th>Total Price ($)</th>
+                          <!-- <th>Actions</th> -->
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Spunbond</td>
-                            <td></td>
-                            <td>50</td>
-                            <td>$10</td>
-                            <td class="text-primary">$500</td>
-                          </tr>
-                          <!--<tr>
-                            <td>2</td>
-                            <td>Minerva Hooper</td>
-                            <td>Curaçao</td>
-                            <td>Sinaai-Waas</td>
-                            <td class="text-primary">$23,789</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Sage Rodriguez</td>
-                            <td>Netherlands</td>
-                            <td>Baileux</td>
-                            <td class="text-primary">$56,142</td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>Philip Chaney</td>
-                            <td>Korea, South</td>
-                            <td>Overland Park</td>
-                            <td class="text-primary">$38,735</td>
-                          </tr>
-                          <tr>
-                            <td>5</td>
-                            <td>Doris Greene</td>
-                            <td>Malawi</td>
-                            <td>Feldkirchen in Kärnten</td>
-                            <td class="text-primary">$63,542</td>
-                          </tr>
-                          <tr>
-                            <td>6</td>
-                            <td>Mason Porter</td>
-                            <td>Chile</td>
-                            <td>Gloucester</td>
-                            <td class="text-primary">$78,615</td>
-                          </tr>-->
-                        </tbody>
+                        <tbody id="raw-tbody"></tbody>
                       </table>
                     </div>
                   </div>
@@ -1394,72 +1356,35 @@
                   <div class="card-header card-header-primary">
                     <h4 class="card-title">
                       Finished Products
-                      <button type="button" class="float btn table-button">
+                      <button
+                        type="button"
+                        class="float btn table-button"
+                        data-toggle="modal"
+                        data-target="#finishedModal"
+                        onclick="AddFinishedList()"
+                      >
                         <i class="material-icons">add</i> Add
                       </button>
-                      <button type="button" class="float btn table-button">
+                      <button
+                        type="button"
+                        class="float btn table-button"
+                        onclick="Inventory_Click()"
+                      >
                         <i class="material-icons">refresh</i> Refresh
                       </button>
                     </h4>
-                    <!--<p class="card-category">
-                      Here is a subtitle for this table
-                    </p>-->
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
-                      <table class="table">
+                      <table class="table" id="finished-table">
                         <thead class="text-primary">
                           <th>ID</th>
-                          <th>Final Product</th>
+                          <th>Name</th>
                           <th>Description</th>
                           <th>Quantity</th>
-                          <th>Price</th>
+                          <th>Price ($)</th>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>1.1</td>
-                            <td>Budget BaseSet</td>
-                            <td></td>
-                            <td>25</td>
-                            <td>$90</td>
-                            <!-- <td class="text-primary">$36,738</td>-->
-                          </tr>
-                          <!--<tr>
-                            <td>2</td>
-                            <td>Minerva Hooper</td>
-                            <td>Curaçao</td>
-                            <td>Sinaai-Waas</td>
-                            <td class="text-primary">$23,789</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Sage Rodriguez</td>
-                            <td>Netherlands</td>
-                            <td>Baileux</td>
-                            <td class="text-primary">$56,142</td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>Philip Chaney</td>
-                            <td>Korea, South</td>
-                            <td>Overland Park</td>
-                            <td class="text-primary">$38,735</td>
-                          </tr>
-                          <tr>
-                            <td>5</td>
-                            <td>Doris Greene</td>
-                            <td>Malawi</td>
-                            <td>Feldkirchen in Kärnten</td>
-                            <td class="text-primary">$63,542</td>
-                          </tr>
-                          <tr>
-                            <td>6</td>
-                            <td>Mason Porter</td>
-                            <td>Chile</td>
-                            <td>Gloucester</td>
-                            <td class="text-primary">$78,615</td>
-                          </tr>-->
-                        </tbody>
+                        <tbody id="finished-tbody"></tbody>
                       </table>
                     </div>
                   </div>
@@ -1468,7 +1393,7 @@
             </div>
           </div>
         </div>
-        <footer class="footer">
+        <!-- <footer class="footer">
           <div class="container-fluid">
             <nav class="float-left">
               <ul>
@@ -1487,7 +1412,147 @@
               </ul>
             </nav>
           </div>
-        </footer>
+        </footer> -->
+        <!-- Raw Materials Modal -->
+        <div
+          class="modal fade"
+          id="rawModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="rawModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="rawModalLabel">
+                  Add Raw Materials
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="raw-info">
+                  <div class="form-group">
+                    <label for="rawSelect">Select Raw Material</label>
+                    <select
+                      class="form-control"
+                      data-style="btn btn-primary"
+                      id="rawSelect"
+                      title="Choose one of the following..."
+                    >
+                      <option>Foam</option>
+                      <option>Material</option>
+                      <option>Plastic</option>
+                      <option>Batting</option>
+                      <option>Spun_Bond</option>
+                      <option>Tape</option>
+                      <option>Spring</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="rawAmount"
+                      name="Amount"
+                      placeholder="Amount"
+                      required
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="AddRaw()"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Finished Products Modal -->
+        <div
+          class="modal fade"
+          id="finishedModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="finishedModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="finishedModalLabel">
+                  Add Finsihed Product
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="finished-info">
+                  <div class="form-group">
+                    <label for="finishedSelect">Select Finished Product</label>
+                    <select
+                      class="form-control"
+                      data-style="btn btn-primary"
+                      id="finishedSelect"
+                      title="Choose one of the following..."
+                    ></select>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="finishedAmount"
+                      name="Amount"
+                      placeholder="Amount"
+                      required
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="AddFinished()"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- Success Modal -->
       <div
